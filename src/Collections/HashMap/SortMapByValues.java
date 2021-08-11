@@ -30,7 +30,7 @@ public class SortMapByValues {
 		ke.add("3a5");
 		ke.add("1a12");
 		ke.add("5a2");
-		int x = 1000000000000000000;
+		int x = 10000000;
 		String [] temp = ke.get(2).split("a");
 
 		System.out.println("Keys before- "+"\n"+ke);
