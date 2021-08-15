@@ -29,6 +29,8 @@ public class BinaryTree {
 		root = addRecursive(root, value);
 	}
 
+	/*Its DFS traversal, similar to preorder and postorder
+	 * */
 	public void traverseInOrder(Node node) {
 		if (node != null) {
 			traverseInOrder(node.left);
@@ -37,6 +39,8 @@ public class BinaryTree {
 		}
 	}
 
+	/*Its BFS traversal
+	* */
 	public void traverseLevelOrder(Node root) {
 		if (root == null)                            // Base Case
 			return;
@@ -109,4 +113,26 @@ public class BinaryTree {
 	public boolean containsNode(int value){
 		return containsNodeRecursive(root, value) != null;
 	}
+
+	// Enumeration of BT - no of BST for n nodes - https://www.geeksforgeeks.org/enumeration-of-binary-trees/
+	//T(3) =  T(0)*T(2) + T(1)*T(1) + T(2)*T(0)
+	//t(n) = sum of all(t(i-1)*t(n-i))
+
+	public boolean isSymmetric(Node root) {
+		return  isMirror(root, root);
+	}
+	public boolean  isMirror(Node r1, Node r2){
+		if(r1 == null && r2 == null)
+			return true;
+
+		if(r1 !=null && r2 !=null &&
+				r1.value == r2.value &&  isMirror(r1.left, r2.right) && isMirror(r1.right, r2.left))
+			return true;
+
+		return false;
+	}
+
+	//ifFoldable - check if symmetric without the key check - structure only should be symmetric
+
+	//Continuous Tree- difference between adjacent nodes should be 1
 }
