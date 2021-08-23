@@ -8,15 +8,15 @@ public class BinaryTree {
 	public Node root;
 
 
-	private Node addRecursive(Node current, int value) {
+	private Node addInorder(Node current, int value) {
 		if (current == null) {
 			return new Node(value);
 		}
 
 		if (value < current.value) {
-			current.left = addRecursive(current.left, value);
+			current.left = addInorder(current.left, value);
 		} else if (value > current.value) {
-			current.right = addRecursive(current.right, value);
+			current.right = addInorder(current.right, value);
 		} else {
 			// value already exists
 			return current;
@@ -26,7 +26,7 @@ public class BinaryTree {
 	}
 
 	public void add(int value) {
-		root = addRecursive(root, value);
+		root = addInorder(root, value);
 	}
 
 	/*Its DFS traversal, similar to preorder and postorder
@@ -115,7 +115,10 @@ public class BinaryTree {
 	}
 
 	// Enumeration of BT - no of BST for n nodes - https://www.geeksforgeeks.org/enumeration-of-binary-trees/
-	//T(3) =  T(0)*T(2) + T(1)*T(1) + T(2)*T(0)
+	//t0=1, t1=1
+	//t2  = t0.t1 + t1.t0 = 1+1=2
+	//T(3) =  T(0)*T(2) + T(1)*T(1) + T(2)*T(0)= 2+1+2= 5
+	//
 	//t(n) = sum of all(t(i-1)*t(n-i))
 
 	public boolean isSymmetric(Node root) {
