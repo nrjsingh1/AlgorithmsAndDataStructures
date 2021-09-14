@@ -21,9 +21,9 @@ public class MyClass {
         }
         
         for(int i =pos;i<arr.length;i++){
-            swap(pos, i, arr);
+            swap(pos, i, arr);// fixed first char pos and swaped it with other chars i
             permuteBT(res, arr, pos+1);
-            swap(pos, i, arr);
+            swap(pos, i, arr);// undo the swap to back track to the parent of all child combinations when first chars are fixed
         }
     }
     
