@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MyClass {
+public class Test14Sep2021 {
     public static void main(String args[]) {
     
       //reverse data of an array
@@ -49,7 +49,7 @@ public class MyClass {
             return;
         }
         temp = arr;
-        for(int i =0;i<n && i != pos;i++){
+        for(int i =0;i<arr.length && i != pos;i++){
             char tp = temp[i];
             temp[i] = temp[pos];
             temp[pos] = tp;

@@ -1,6 +1,8 @@
+package Leetcode;
+
 import java.util.*;
 //permutations of a string using swap
-public class MyClass {
+class PermutationsString {
     public static void main(String args[]) {
         
         String s = "abc";
